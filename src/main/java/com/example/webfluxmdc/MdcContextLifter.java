@@ -32,6 +32,7 @@ class MdcContextLifter<T> implements CoreSubscriber<T> {
 
     @Override
     public void onError(Throwable t) {
+        copyToMdc(coreSubscriber.currentContext());
         coreSubscriber.onError(t);
     }
 
